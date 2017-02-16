@@ -58,7 +58,8 @@ Here are the hog features:
 I tried various combinations of the different parameters on 6 test images, along with testing different sliding windows and heat thresholds. Also, when running my train_test_split I tracked the better performing options. All of these things added up to my eventual solution.
 
 During my test, I had >99% accuracy
-```('Using:', 7, 'orientations', 8, 'pixels per cell and', 2, 'cells per block')
+```python
+('Using:', 7, 'orientations', 8, 'pixels per cell and', 2, 'cells per block')
 
 ('Feature vector length:', 7284)
 
