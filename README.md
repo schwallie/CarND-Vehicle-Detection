@@ -81,11 +81,13 @@ I used HOG, along with spatial and histogram features.
 
 One of the biggest things I learned was to do two separate sliding scales. This allowed me to find better overlap on real cars and get a better view of those cars, then I could properly use a heatmap to get rid of false positives.
 
-`windows = self.slide_window(draw_image, x_start_stop=[690, None], y_start_stop=[375, 430],
-                                    xy_window=(110, 90), xy_overlap=config.xy_overlap)`
+```python
+windows = self.slide_window(draw_image, x_start_stop=[690, None], y_start_stop=[375, 430],
+                                    xy_window=(110, 90), xy_overlap=config.xy_overlap)
 
-`windows += self.slide_window(draw_image, x_start_stop=[760, None], y_start_stop=[375, 560],
-                                         xy_window=(110, 90), xy_overlap=config.xy_overlap)`
+windows += self.slide_window(draw_image, x_start_stop=[760, None], y_start_stop=[375, 560],
+                                         xy_window=(110, 90), xy_overlap=config.xy_overlap)
+```
                                          
 In this code in `main.py` I implemented the slide_window function twice on different pieces of the image.
 
