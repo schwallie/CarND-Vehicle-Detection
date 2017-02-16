@@ -67,6 +67,7 @@ During my test, I had >99% accuracy
 
 (Test Accuracy of SVC = , 0.9941)```
 
+
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 I trained LinearSVC() using scikit-learn. This is done in the `get_fit_model()` function in `main.py`
