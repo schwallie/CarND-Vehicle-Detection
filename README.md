@@ -59,13 +59,13 @@ I tried various combinations of the different parameters on 6 test images, along
 
 During my test, I had >99% accuracy
 ```python
-('Using:', 7, 'orientations', 8, 'pixels per cell and', 2, 'cells per block')
+(Using:, 7, orientations, 8, pixels per cell and, 2, cells per block)
 
-('Feature vector length:', 7284)
+(Feature vector length:, 7284)
 
-(25.98, 'Seconds to train SVC...')
+(25.98, Seconds to train SVC...)
 
-('Test Accuracy of SVC = ', 0.9941)```
+(Test Accuracy of SVC = , 0.9941)```
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
