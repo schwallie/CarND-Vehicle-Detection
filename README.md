@@ -57,6 +57,12 @@ Here are the hog features:
 
 I tried various combinations of the different parameters on 6 test images, along with testing different sliding windows and heat thresholds. Also, when running my train_test_split I tracked the better performing options. All of these things added up to my eventual solution.
 
+During my test, I had >99% accuracy
+`('Using:', 7, 'orientations', 8, 'pixels per cell and', 2, 'cells per block')
+('Feature vector length:', 7284)
+(25.98, 'Seconds to train SVC...')
+('Test Accuracy of SVC = ', 0.9941)`
+
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 I trained LinearSVC() using scikit-learn. This is done in the `get_fit_model()` function in `main.py`
