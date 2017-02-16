@@ -65,7 +65,8 @@ During my test, I had >99% accuracy
 
 (25.98, Seconds to train SVC...)
 
-(Test Accuracy of SVC = , 0.9941)```
+(Test Accuracy of SVC = , 0.9941)
+```
 
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
