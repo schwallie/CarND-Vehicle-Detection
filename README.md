@@ -81,7 +81,9 @@ Here's an example of all the boxes it creates:
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result. I did a heatmap to find the boxes that laid on top of each other and only kept those that have >5 boxes found in an area.
+Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result. I did a heatmap to find the boxes that laid on top of each other and only kept those that have >7 boxes found in an area.
+
+In the functions `add_heat()` and `apply_threshold()` in `main.py` you can see that I've simply started +1 brightness to every pixel in all the boxes that were found. Then, knowing there should be significant overlap, I only use the "hottest" areas
 
 Here are some example images:
 
