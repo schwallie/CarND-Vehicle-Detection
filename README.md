@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 [image3]: ./test_images/final_test5.png
 [image4]: ./non-vehicles/GTI/image1043.png
 [image5]: ./vehicles/GTI_Far/image0074.png
-[image6]: ./examples/labels_map.png
+[image6]: ./heatmap.png
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
@@ -78,6 +78,9 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 
 Here are some example images:
 
+
+Here's my heatmap
+![alt text][image6]
 
 ![alt text][image2]
 

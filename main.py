@@ -86,6 +86,7 @@ class DetectVehicles(object):
     def apply_threshold(self, heatmap, threshold, img):
         # Zero out pixels below the threshold
         heatmap[heatmap <= threshold] = 0
+        cv2.imwrite('heatmap.png', heatmap)
         # Return thresholded map
         labels = label(heatmap)
         print(labels[1])
