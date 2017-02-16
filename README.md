@@ -78,7 +78,6 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 
 Here are some example images:
 
-![alt text][image1]
 
 ![alt text][image2]
 
