@@ -50,11 +50,11 @@ class DetectVehicles(object):
                                      xy_window=(110, 90), xy_overlap=config.xy_overlap)
         hot_windows = self.search_windows(draw_image, windows, self.fit_model, self.X_scaler)
 
-        # draw_img = self.draw_boxes(img, hot_windows, color=(0, 0, 200), thick=6)
+        draw_img = self.draw_boxes(img, hot_windows, color=(0, 0, 200), thick=6)
         heat = np.zeros_like(img[:, :, 0]).astype(np.float)
         heat = self.add_heat(heat, hot_windows)
         heat2 = self.apply_threshold(heat, 7, img)
-        # cv2.imwrite('video_output_images/final_{0}.png'.format(self.frame_num), draw_img)
+        cv2.imwrite('video_output_images/final_{0}.png'.format(self.frame_num), draw_img)
         self.frame_num += 1
         return heat2
 
@@ -73,11 +73,11 @@ class DetectVehicles(object):
                 hog_features = []
                 self.hog_images = []
                 for channel in range(feature_image.shape[2]):
-                    hog_feature, hog_image = get_hog_features(feature_image[:, :, channel],
+                    hog_feature = get_hog_features(feature_image[:, :, channel],
                                                                self.orient, self.pix_per_cell, self.cell_per_block,
-                                                               vis=True, feature_vec=True)
+                                                               vis=False, feature_vec=True)
                     hog_features.append(hog_feature)
-                    self.hog_images.append(hog_image)
+                    # self.hog_images.append(hog_image)
                 hog_features = np.ravel(hog_features)
             else:
                 hog_features = get_hog_features(feature_image[:, :, self.hog_channel], self.orient,
@@ -319,7 +319,7 @@ def test_pipe(svc, X_scaler):
         print(img)
         image = imageio.imread(img)
         new = det.draw_on_image(image)
-        cv2.imwrite('final_{0}.png'.format(img.split('/')[-1].split('.')[0]), new)
+        # cv2.imwrite('final_{0}.png'.format(img.split('/')[-1].split('.')[0]), new)
         break
     return det
 

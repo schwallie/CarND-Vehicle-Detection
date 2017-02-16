@@ -18,6 +18,7 @@ The goals / steps of this project are the following:
 [image5]: ./vehicles/GTI_Far/image0074.png
 [image6]: ./heatmap.png
 [image7]: ./hog_image.png
+[image8]: ./video_output_images/final_0.png
 [video1]: ./project_video_annotated.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -74,6 +75,9 @@ windows += self.slide_window(draw_image, x_start_stop=[760, None], y_start_stop=
                                          xy_window=(110, 90), xy_overlap=config.xy_overlap)`
                                          
 In this code in `main.py` I implemented the slide_window function twice on different pieces of the image.
+
+Here's an example of all the boxes it creates:
+![alt text][image8]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
