@@ -3,11 +3,11 @@
 """
 import os
 import time
-import pandas as pd
+
+from scipy.ndimage.measurements import label
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC
-from scipy.ndimage.measurements import label
 
 import config
 from lessons import *
@@ -47,7 +47,7 @@ class DetectVehicles(object):
         windows = self.slide_window(draw_image, x_start_stop=[690, None], y_start_stop=[375, 430],
                                     xy_window=(110, 90), xy_overlap=config.xy_overlap)
         windows += self.slide_window(draw_image, x_start_stop=[760, None], y_start_stop=[375, 560],
-                                         xy_window=(110, 90), xy_overlap=config.xy_overlap)
+                                     xy_window=(110, 90), xy_overlap=config.xy_overlap)
         hot_windows = self.search_windows(draw_image, windows, self.fit_model, self.X_scaler)
 
         # draw_img = self.draw_boxes(img, hot_windows, color=(0, 0, 200), thick=6)
@@ -71,10 +71,13 @@ class DetectVehicles(object):
             # Call get_hog_features() with vis=False, feature_vec=True
             if self.hog_channel == 'ALL':
                 hog_features = []
+                self.hog_images = []
                 for channel in range(feature_image.shape[2]):
-                    hog_features.append(get_hog_features(feature_image[:, :, channel],
-                                                         self.orient, self.pix_per_cell, self.cell_per_block,
-                                                         vis=True, feature_vec=True))
+                    hog_feature, hog_image = get_hog_features(feature_image[:, :, channel],
+                                                               self.orient, self.pix_per_cell, self.cell_per_block,
+                                                               vis=True, feature_vec=True)
+                    hog_features.append(hog_feature)
+                    self.hog_images.append(hog_image)
                 hog_features = np.ravel(hog_features)
             else:
                 hog_features = get_hog_features(feature_image[:, :, self.hog_channel], self.orient,
@@ -317,6 +320,8 @@ def test_pipe(svc, X_scaler):
         image = imageio.imread(img)
         new = det.draw_on_image(image)
         cv2.imwrite('final_{0}.png'.format(img.split('/')[-1].split('.')[0]), new)
+        break
+    return det
 
 
 def centroid_function(detections, img):

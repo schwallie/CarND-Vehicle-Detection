@@ -33,8 +33,8 @@ def get_hog_features(img, orient, pix_per_cell, cell_per_block,
                                   cells_per_block=(cell_per_block, cell_per_block),
                                   transform_sqrt=True,
                                   visualise=vis, feature_vector=feature_vec)
-        cv2.imwrite('hog_features.png', hog_image)
-        return features
+        # cv2.imwrite('hog_features.png', hog_image)
+        return features, hog_image
     # Otherwise call with one output
     else:
         features = hog(img, orientations=orient,

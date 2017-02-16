@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 [image4]: ./non-vehicles/GTI/image1043.png
 [image5]: ./vehicles/GTI_Far/image0074.png
 [image6]: ./heatmap.png
-[image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
+[image7]: ./hog_image.png
+[video1]: ./project_video_annotated.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -46,8 +46,11 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=7`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
+Here are the hog features:
+![alt text][image7]
 
 ![alt text][image2]
+
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
